@@ -77,6 +77,8 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
+                    <finalName>CurrencyExchange</finalName>
+                    <mainClass>com.exchange.rate.ExchangeRateChallengeApplication</mainClass>
                     <excludes>
                         <exclude>
                             <groupId>org.projectlombok</groupId>

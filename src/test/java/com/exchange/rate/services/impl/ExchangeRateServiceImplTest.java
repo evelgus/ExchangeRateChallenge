@@ -25,22 +25,21 @@ public class ExchangeRateServiceImplTest {
     @Mock
     private DataSource dataSource;
     @InjectMocks
-    private ExchangeRateServiceImpl exchangeRateService ;
+    private ExchangeRateServiceImpl exchangeRateService;
 
     @Before
     public void setUp() {
         RateValuesDTO rateValuesDTO = new RateValuesDTO();
         rateValuesDTO.setSuccess(true);
-        Map<String, BigDecimal> rates = Map.of("USDUER", BigDecimal.valueOf(1.2), "USDGBP", BigDecimal.valueOf(1.3));
+        Map<String, BigDecimal> rates = Map.of("USDEUR", BigDecimal.valueOf(1.2), "USDGBP", BigDecimal.valueOf(1.3));
         rateValuesDTO.setRates(rates);
         when(dataSource.retrieveRatesForCurrency(anyString())).thenReturn(rateValuesDTO);
     }
 
     @Test
     public void exchangeRateTest() {
-
         BigDecimal result = exchangeRateService.exchangeRate("USD", "EUR");
-        assertEquals(BigDecimal.valueOf(1.3), result);
+        assertEquals(BigDecimal.valueOf(1.2), result);
     }
 
     @Test(expected = ExchangeException.class)
@@ -51,7 +50,7 @@ public class ExchangeRateServiceImplTest {
     @Test
     public void exchangeRatesForCurrency() {
         Map<String, BigDecimal> result = exchangeRateService.exchangeRatesForCurrency("USD");
-        assertTrue(result.containsKey("USDUER"));
+        assertTrue(result.containsKey("USDEUR"));
         assertTrue(result.containsKey("USDGBP"));
     }
 
@@ -63,8 +62,8 @@ public class ExchangeRateServiceImplTest {
 
     @Test
     public void convertCurrencies() {
-        Map<String, BigDecimal> result= exchangeRateService.convertCurrencies("USD", List.of("GBP", "NonExistingCurrency"), BigDecimal.valueOf(1000));
-        assertEquals(BigDecimal.valueOf(1300.0), result);
+        Map<String, BigDecimal> result = exchangeRateService.convertCurrencies("USD", List.of("GBP", "NonExistingCurrency"), BigDecimal.valueOf(1000));
+        assertEquals(BigDecimal.valueOf(1300.0), result.get("USDGBP"));
         assertEquals(2, result.size());
         assertTrue(result.containsKey("Impossible to convert USD to NONEXISTINGCURRENCY"));
     }
