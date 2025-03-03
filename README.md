@@ -23,4 +23,4 @@ Project can be started in few ways:
 
 ##Testing
 
-Project contains UI which allow to test REST API endpoints in convenient way. To access UI you need to use http://localhost:8080/swagger-ui/index.html link. 
+Project have UI which contains methods descriptions and allow to test REST API endpoints in convenient way. To access UI you need to use http://localhost:8080/swagger-ui/index.html link. 
