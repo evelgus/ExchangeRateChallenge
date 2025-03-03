@@ -22,4 +22,5 @@ Project can be started in few ways:
 3. In IDE running <em>ExchangeRateChallengeApplication.main
 
 ##Testing
+
 Project contains UI which allow to test REST API endpoints in convenient way. To access UI you need to use http://localhost:8080/swagger-ui/index.html link. 
