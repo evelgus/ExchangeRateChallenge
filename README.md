@@ -29,5 +29,5 @@ Project have Swagger which contains methods descriptions and allow to test REST 
 Currently there are two data providers - real and dummy. To switch between data provider you need to change <em>real_data_source.enabled</em> property.
 
 ## Caching 
-Spring cache was used for caching data provier data. Cache TTl can be changed by <em>caching.spring.ratesTTL</em> propery
+Spring cache was used for caching data provier data. Cache TTL can be changed by <em>caching.spring.ratesTTL</em> propery
 
