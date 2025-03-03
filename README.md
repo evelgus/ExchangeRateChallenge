@@ -26,5 +26,8 @@ Project can be started in few ways:
 Project have Swagger which contains methods descriptions and allow to test REST API endpoints in convenient way. To access UI, while running project locally, you need to use http://localhost:8080/swagger-ui/index.html link. 
 
  ## Switch between data providers
-Currently there are two data providers - real and dummy. To switch between data provider you need to change <em>real_data_source.enabled</em> property. 
+Currently there are two data providers - real and dummy. To switch between data provider you need to change <em>real_data_source.enabled</em> property.
+
+## Caching 
+Spring cache was used for caching data provier data. Cache TTl can be changed by <em>caching.spring.ratesTTL</em> propery
 
